@@ -47,7 +47,7 @@ def accept_booking(booking_id: int, driver_id: int, db: Session = Depends(get_db
 @router.post("/create", response_model=CabBookingOut)
 def create_booking(data: CabBookingCreate, db: Session = Depends(get_db)):
 
-    # ✅ CHECK USER EXISTS
+    #  CHECK USER EXISTS
     user = db.query(User).filter(User.id == data.user_id).first()
     if not user:
         raise HTTPException(
@@ -96,9 +96,10 @@ def update_booking(
         from models.driver import Driver
         driver = db.query(Driver).filter(Driver.id == booking.driver_id).first()
         if driver:
-            if data.status.lower() in ["finished", "cancelled"]:
+            status_lower = data.status.lower()
+            if status_lower in ["finished", "cancelled", "completed", "rejected"]:
                 driver.status = "available"
-            elif data.status.lower() in ["accepted", "confirmed"]:
+            elif status_lower in ["accepted", "confirmed"]:
                 driver.status = "unavailable"
 
     db.commit()

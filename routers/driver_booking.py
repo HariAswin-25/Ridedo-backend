@@ -101,9 +101,10 @@ def update_driver_booking(
         from models.driver import Driver
         driver = db.query(Driver).filter(Driver.id == booking.driver_id).first()
         if driver:
-            if data.status.lower() in ["finished", "cancelled"]:
+            status_lower = data.status.lower()
+            if status_lower in ["finished", "cancelled", "completed", "rejected"]:
                 driver.status = "available"
-            elif data.status.lower() in ["accepted", "confirmed"]:
+            elif status_lower in ["accepted", "confirmed"]:
                 driver.status = "unavailable"
 
     db.commit()

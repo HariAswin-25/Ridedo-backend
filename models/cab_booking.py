@@ -16,5 +16,5 @@ class CabBooking(Base):
     booking_date = Column(Date, nullable=False)
     booking_time = Column(Time, nullable=False)
 
-    status = Column(String, default="confirmed")
+    status = Column(String, default="pending")
     created_at = Column(DateTime, default=datetime.utcnow)

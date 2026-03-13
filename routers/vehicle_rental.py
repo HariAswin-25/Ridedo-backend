@@ -77,9 +77,9 @@ def update_rental(
         setattr(rental, key, value)
 
     if vehicle:
-        if new_status == "confirmed":
+        if new_status in ["confirmed", "accepted"]:
             vehicle.availability = "booked"
-        elif new_status in ["finished", "cancelled"]:
+        elif new_status in ["finished", "cancelled", "completed", "rejected"]:
             vehicle.availability = "available"
 
     db.commit()

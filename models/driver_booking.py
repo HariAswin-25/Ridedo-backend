@@ -19,5 +19,5 @@ class DriverBooking(Base):
     duration_hours = Column(Integer, nullable=False)
     contact_number = Column(String, nullable=False)
 
-    status = Column(String, default="confirmed")
+    status = Column(String, default="pending")
     created_at = Column(DateTime, default=datetime.utcnow)
