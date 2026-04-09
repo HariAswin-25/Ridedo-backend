@@ -16,17 +16,6 @@ class CabBookingBase(BaseModel):
 class CabBookingCreate(CabBookingBase):
     pass
 
-
-# UPDATE
-class CabBookingUpdate(BaseModel):
-    pickup_location: Optional[str] = None
-    destination: Optional[str] = None
-    cab_type: Optional[str] = None
-    booking_date: Optional[date] = None
-    booking_time: Optional[time] = None
-    status: Optional[str] = None
-
-
 # RESPONSE
 class CabBookingOut(CabBookingBase):
     id: int

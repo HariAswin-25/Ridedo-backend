@@ -20,7 +20,7 @@ class VehicleRental(Base):
     vehicle_id = Column(Integer, ForeignKey("vehicles.id"), nullable=False)
 
     pickup_location = Column(String, nullable=False)
-    phone_number = Column(String(15), nullable=False)
+    phone_number = Column(String, nullable=False)
     driving_license_number = Column(String, nullable=False)
 
     pickup_date = Column(Date, nullable=False)

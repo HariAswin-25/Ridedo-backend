@@ -14,17 +14,6 @@ class DriverBookingCreate(BaseModel):
     contact_number: str
 
 
-# UPDATE
-class DriverBookingUpdate(BaseModel):
-    pickup_location: Optional[str] = None
-    drop_location: Optional[str] = None
-    booking_date: Optional[str] = None
-    booking_time: Optional[str] = None
-    duration_hours: Optional[int] = None
-    contact_number: Optional[str] = None
-    status: Optional[str] = None
-
-
 # RESPONSE
 class DriverBookingOut(DriverBookingCreate):
     id: int

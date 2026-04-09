@@ -9,7 +9,6 @@ from routers.vehicle import router as vehicle_router
 from routers.vehicle_rental import router as vehicle_rentals_router
  
 # create tables
-
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -18,15 +17,13 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS (frontend connect panna)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
+    allow_origins=["https://ridedo-backend-4o1g.vercel.app"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # include routers
 
 app.include_router(users_router)
