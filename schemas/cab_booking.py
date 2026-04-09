@@ -23,5 +23,12 @@ class CabBookingOut(CabBookingBase):
     status: str
     created_at: datetime
 
+
+class CabBookingUpdate(BaseModel):
+    user_id: Optional[int]
+    driver_id: Optional[int]
+    pickup_location: Optional[str]
+    drop_location: Optional[str]
+    status: Optional[str]
     class Config:
         from_attributes = True
