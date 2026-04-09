@@ -1,7 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-import os 
+import os
+from datetime import datetime, timezone
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,4 +20,14 @@ SessionLocal = sessionmaker(
 
 Base = declarative_base()
 
+# ✅ DB Dependency
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
+# ✅ UTC time helper
+def utcnow() -> datetime:
+    return datetime.now(timezone.utc)
