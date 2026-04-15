@@ -20,7 +20,7 @@ app = FastAPI(
 origins = [
     "http://127.0.0.1:5500",
     "http://localhost:5500",
-    "https://ridedo-frontend-jb0i7czf7-hariaswin2007-5936s-projects.vercel.app"
+    "https://ridedo-frontend-jb0i7czf7-hariaswin2007-5936s-projects.vercel.app",
     "https://ridedo-backend-4o1g.vercel.app"  # later use this
 ]
 
